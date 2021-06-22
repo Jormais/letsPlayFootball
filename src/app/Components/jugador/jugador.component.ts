@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-jugador',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JugadorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route : ActivatedRoute) {
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id);
+  }
 
   ngOnInit(): void {
   }
