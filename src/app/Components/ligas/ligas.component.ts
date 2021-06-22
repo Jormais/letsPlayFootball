@@ -14,7 +14,7 @@ export class LigasComponent implements OnInit {
   constructor(private leaguesService : LeaguesService) {
     leaguesService.sendGetRequest().subscribe( league => {
       return this.leagues = league;
-    })
+    });
   }
 
   ngOnInit(): void {
