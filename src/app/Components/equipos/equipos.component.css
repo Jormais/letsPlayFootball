@@ -11,6 +11,7 @@
     grid-row-start: row1-start;
     grid-row-end: 3;
     align-items: center;
+    text-align: center;
 }
 
 img{

@@ -10,4 +10,10 @@
     grid-column-end: five;
     grid-row-start: row1-start;
     grid-row-end: 3;
+    align-items: center;
+    text-align: center;
+}
+
+img{
+    max-width: 70px;
 }
