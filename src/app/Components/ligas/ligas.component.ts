@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
+import { Leagues } from 'src/app/interfaces/leagues';
+import { LeaguesService } from 'src/app/services/leagues/leagues.service';
 
 @Component({
   selector: 'app-ligas',
@@ -8,24 +9,15 @@ import axios from 'axios';
 })
 export class LigasComponent implements OnInit {
 
-  leagues : {}[] = [{}];
+  leagues : Leagues[] = [];
 
-  constructor() {
-    this.getLeagues()
+  constructor(private leaguesService : LeaguesService) {
+    leaguesService.sendGetRequest().subscribe( league => {
+      return this.leagues = league;
+    })
   }
 
   ngOnInit(): void {
-  }
-
-  getLeagues() {
-    axios.get("http://localhost:3000/leagues")
-    .then( league => {
-      console.log(league.data);
-      return  this.leagues = league.data;
-    }
-    )
-    .catch( error => console.log(error)
-    );
   }
 
 }
