@@ -12,7 +12,7 @@ export class EquiposComponent implements OnInit {
   equipos : Equipos[] = [];
 
   constructor(private equiposService : EquiposService) {
-   equiposService.sendGetRequest().subscribe( equipo => {
+  equiposService.sendGetRequest().subscribe( equipo => {
       return this.equipos = equipo;
     });
   }
