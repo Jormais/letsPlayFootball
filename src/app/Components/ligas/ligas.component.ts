@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-ligas',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LigasComponent implements OnInit {
 
-  constructor() { }
+  leagues : {}[] = [{}];
+
+  constructor() {
+    this.getLeagues()
+  }
 
   ngOnInit(): void {
+  }
+
+  getLeagues() {
+    axios.get("http://localhost:3000/leagues")
+    .then( league => {
+      console.log(league.data);
+      return  this.leagues = league.data;
+    }
+    )
+    .catch( error => console.log(error)
+    );
   }
 
 }
