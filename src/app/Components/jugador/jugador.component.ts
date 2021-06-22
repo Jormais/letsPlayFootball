@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Jugadores } from 'src/app/interfaces/jugadores';
+import { JugadorService } from 'src/app/services/jugador.service';
 
 @Component({
   selector: 'app-jugador',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JugadorComponent implements OnInit {
 
-  constructor() { }
+  jugador : Jugadores[] = [];
+
+  constructor(private route : ActivatedRoute, private jugadorService : JugadorService) {
+    const id = this.route.snapshot.paramMap.get('id') as string;
+    jugadorService.sendGetRequest(id).subscribe( jugador => this.jugador = jugador);
+  }
 
   ngOnInit(): void {
   }
