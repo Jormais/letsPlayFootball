@@ -14,7 +14,7 @@ const routes: Routes = [
     component : EquiposComponent
   },
   {
-    path : "jugadores",
+    path : "equipos/jugadores",
     component : JugadoresComponent
   }
 ];
