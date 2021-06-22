@@ -4,7 +4,7 @@
         <img src="{{jugador.Avatar}}" class="card-img-top" alt="Logo de equipo"  width="50" height="60">
         <div class="card-body">
             <h5 class="card-title">{{jugador['Nombre del Jugador']}}</h5>
-            
+            <a [routerLink]="['/jugador', jugador.id]" class="btn btn-primary">A jugador</a>
         </div>
     </div>
 

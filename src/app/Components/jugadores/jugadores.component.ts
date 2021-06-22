@@ -11,8 +11,8 @@ export class JugadoresComponent implements OnInit {
 
   jugadores : Jugadores[] = [];
 
-  constructor(private equiposService : JugadoresService) {
-    equiposService.sendGetRequest().subscribe( jugador => {
+  constructor(private jugadoresService : JugadoresService) {
+    jugadoresService.sendGetRequest().subscribe( jugador => {
         return this.jugadores = jugador;
       });
   }

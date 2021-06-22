@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { LigasComponent } from './Components/ligas/ligas.component';
 import { EquiposComponent } from './Components/equipos/equipos.component';
 import { JugadoresComponent } from './Components/jugadores/jugadores.component';
+import { JugadorComponent } from './Components/jugador/jugador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LigasComponent,
     EquiposComponent,
-    JugadoresComponent
+    JugadoresComponent,
+    JugadorComponent
   ],
   imports: [
     BrowserModule,
