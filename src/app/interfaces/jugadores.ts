@@ -1,0 +1,6 @@
+export interface Jugadores {
+    'Nombre del Jugador': string,
+    id: string,
+    Avatar: string,
+    teamId: string
+}
