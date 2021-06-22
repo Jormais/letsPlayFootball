@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Leagues } from 'src/app/interfaces/leagues';
+import { LeaguesService } from 'src/app/services/leagues/leagues.service';
 
 @Component({
   selector: 'app-ligas',
@@ -10,24 +11,13 @@ export class LigasComponent implements OnInit {
 
   leagues : Leagues[] = [];
 
-  constructor(public httpClient: HttpClient) {
-    this.sendGetRequest()
+  constructor(private leaguesService : LeaguesService) {
+    leaguesService.sendGetRequest().subscribe( league => {
+      return this.leagues = league;
+    })
   }
 
   ngOnInit(): void {
   }
 
-  sendGetRequest() {
-    this.httpClient.get<Leagues[]>('http://localhost:3000/leagues').subscribe((res) => {
-        console.log(res);
-        this.leagues = res;
-    });
-  }
-
-}
-
-interface Leagues {
-  'Nombre De La Liga' : string,
-  Identificador: string,
-  'Logo de la Liga' :string
 }
