@@ -1,4 +1,11 @@
-<p>ligas works!</p>
-<div *ngFor="let league of leagues">
-    <h2>Prueba</h2>
+<div class="grid-container" *ngFor="let league of leagues">
+
+    <div class="card grid-item" style="width: 8rem;">
+        <img src="{{league['Logo de la Liga']}}" class="card-img-top" alt="Logo de equipo"  width="50" height="60">
+        <div class="card-body">
+            <h5 class="card-title">{{league['Nombre De La Liga']}}</h5>
+            <a href="#" class="btn btn-primary">A equipo</a>
+        </div>
+    </div>
+
 </div>

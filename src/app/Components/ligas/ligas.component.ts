@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-ligas',
@@ -8,24 +8,26 @@ import axios from 'axios';
 })
 export class LigasComponent implements OnInit {
 
-  leagues : {}[] = [{}];
+  leagues : Leagues[] = [];
 
-  constructor() {
-    this.getLeagues()
+  constructor(public httpClient: HttpClient) {
+    this.sendGetRequest()
   }
 
   ngOnInit(): void {
   }
 
-  getLeagues() {
-    axios.get("http://localhost:3000/leagues")
-    .then( league => {
-      console.log(league.data);
-      return  this.leagues = league.data;
-    }
-    )
-    .catch( error => console.log(error)
-    );
+  sendGetRequest() {
+    this.httpClient.get<Leagues[]>('http://localhost:3000/leagues').subscribe((res) => {
+        console.log(res);
+        this.leagues = res;
+    });
   }
 
+}
+
+interface Leagues {
+  'Nombre De La Liga' : string,
+  Identificador: string,
+  'Logo de la Liga' :string
 }
