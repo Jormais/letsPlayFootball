@@ -6,7 +6,7 @@ import { LigasComponent } from './Components/ligas/ligas.component';
 
 const routes: Routes = [
   {
-    path : "ligas",
+    path : "",
     component : LigasComponent
   },
   {
