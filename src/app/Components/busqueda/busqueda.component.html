@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<div class="grid-container" *ngFor="let j of jugadoresFiltrados">
+
+    <div class="card grid-item" style="width: 16rem;">
+        <img src="{{j.Avatar}}" class="card-img-top" alt="Logo de equipo"  width="50" height="60">
+        <div class="card-body">
+            <h5 class="card-title">{{j['Nombre del Jugador']}}</h5>
+        </div>
+    </div>
+
+</div>

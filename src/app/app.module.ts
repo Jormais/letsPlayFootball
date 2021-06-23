@@ -9,6 +9,7 @@ import { JugadoresComponent } from './Components/jugadores/jugadores.component';
 import { JugadorComponent } from './Components/jugador/jugador.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { BusquedaComponent } from './Components/busqueda/busqueda.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     EquiposComponent,
     JugadoresComponent,
     JugadorComponent,
-    NavbarComponent
+    NavbarComponent,
+    BusquedaComponent
   ],
   imports: [
     BrowserModule,
