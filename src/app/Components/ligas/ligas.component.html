@@ -4,7 +4,7 @@
         <img src="{{league['Logo de la Liga']}}" class="card-img-top" alt="Logo de equipo"  width="50" height="60">
         <div class="card-body">
             <h5 class="card-title">{{league['Nombre De La Liga']}}</h5>
-            <a routerLink="/equipos" class="btn btn-primary">A equipo</a>
+            <a routerLink="/equipos" class="btn btn-primary" (click)="setIdLiga(league.Identificador)">A equipo</a>
         </div>
     </div>
 

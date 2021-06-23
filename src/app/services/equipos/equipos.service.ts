@@ -8,9 +8,15 @@ import { Equipos } from 'src/app/interfaces/equipos';
 })
 export class EquiposService {
 
+  idEquipo : string = "";
+
   constructor(public httpClient: HttpClient) { }
 
   sendGetRequest() : Observable<Equipos[]> {
     return this.httpClient.get<Equipos[]>('http://localhost:3000/teams');
+  }
+
+  sendGetRequestByID(id : string) : Observable<Equipos[]> {
+    return this.httpClient.get<Equipos[]>(`http://localhost:3000/teams?id=${id}`);
   }
 }

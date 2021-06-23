@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class LeaguesService {
 
+  idLeague : string = "";
+
   constructor(public httpClient: HttpClient) { }
 
   sendGetRequest() : Observable<Leagues[]> {
