@@ -8,6 +8,8 @@ import { Equipos } from 'src/app/interfaces/equipos';
 })
 export class EquiposService {
 
+  idEquipo : string = "";
+
   constructor(public httpClient: HttpClient) { }
 
   sendGetRequest() : Observable<Equipos[]> {

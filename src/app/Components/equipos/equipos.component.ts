@@ -28,4 +28,8 @@ export class EquiposComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  setIdEquipo(id : string) {
+    this.equiposService.idEquipo = id;
+  }
+
 }
