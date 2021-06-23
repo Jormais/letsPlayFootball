@@ -8,6 +8,7 @@ import { EquiposComponent } from './Components/equipos/equipos.component';
 import { JugadoresComponent } from './Components/jugadores/jugadores.component';
 import { JugadorComponent } from './Components/jugador/jugador.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
