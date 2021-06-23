@@ -13,8 +13,8 @@
             <a class="nav-link" href="#">Jugadores</a>
           </li>
         </ul>
-        <form #search="ngForm" class="d-flex" (ngSubmit)="prueba(search)">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" ngModel required #search="ngModel">
+        <form #search="ngForm" class="d-flex" (ngSubmit)="busqueda(search)">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" ngModel #search="ngModel">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>

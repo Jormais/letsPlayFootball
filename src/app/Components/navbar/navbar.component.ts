@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { BusquedaService } from 'src/app/services/busqueda/busqueda.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,15 +9,21 @@ import { NgForm } from '@angular/forms';
 })
 export class NavbarComponent implements OnInit {
 
-  search : string = "";
+  
 
-  constructor() { }
+  constructor(private burquedaService : BusquedaService) { }
 
   ngOnInit(): void {
   }
 
-  prueba(cosa : NgForm) {
-    console.log(cosa.value);
+  busqueda(respuesta : NgForm) {
+    
+    if (respuesta.value.search === "") {
+      alert("La búsqueda no debe estar vacía");
+    }else {
+      this.burquedaService.search = respuesta.value.search
+      console.log(this.burquedaService.search);
+    }
   }
 
 }
