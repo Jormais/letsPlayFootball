@@ -10,6 +10,7 @@ import { JugadorComponent } from './Components/jugador/jugador.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { BusquedaComponent } from './Components/busqueda/busqueda.component';
+import { BusquedaEquiposComponent } from './Components/busqueda-equipos/busqueda-equipos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BusquedaComponent } from './Components/busqueda/busqueda.component';
     JugadoresComponent,
     JugadorComponent,
     NavbarComponent,
-    BusquedaComponent
+    BusquedaComponent,
+    BusquedaEquiposComponent
   ],
   imports: [
     BrowserModule,
