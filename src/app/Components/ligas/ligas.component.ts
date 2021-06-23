@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Leagues } from 'src/app/interfaces/leagues';
 import { LeaguesService } from 'src/app/services/leagues/leagues.service';
 
@@ -18,6 +18,10 @@ export class LigasComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  setIdLiga(id :string) {
+    this.leaguesService.idLeague = id;
   }
 
 }

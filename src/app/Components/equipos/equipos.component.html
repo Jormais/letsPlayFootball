@@ -1,10 +1,10 @@
-<div class="grid-container" *ngFor="let equipo of equipos">
+<div class="grid-container" *ngFor="let equipo of equiporFiltrados">
 
     <div class="card grid-item" style="width: 12rem;">
         <img src="{{equipo['Logo del Equipo']}}" class="card-img-top" alt="Logo de equipo"  width="50" height="60">
         <div class="card-body">
             <h5 class="card-title">{{equipo['Nombre del equipo']}}</h5>
-            <a routerLink="/equipos/jugadores" class="btn btn-primary">A jugadores</a>
+            <a routerLink="/equipos/jugadores" class="btn btn-primary" (click)="setIdEquipo(equipo.id)">A jugadores</a>
         </div>
     </div>
 
