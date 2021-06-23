@@ -13,4 +13,17 @@ export class JugadoresService {
   sendGetRequest() : Observable<Jugadores[]> {
     return this.httpClient.get<Jugadores[]>('http://localhost:3000/players');
   }
+
+  sendPostRequest(jugador : Jugadores) : Observable<Jugadores> {
+    return this.httpClient.post<Jugadores>('http://localhost:3000/players', jugador);
+  }
+
+  sendPutRequest(jugador :Jugadores, id :string) : Observable<Jugadores> {
+    return this.httpClient.put<Jugadores>(`http://localhost:3000/players/${id}`, jugador)
+  }
+
+  sendDeleteRequest(id : string) : Observable<Jugadores> {
+    return this.httpClient.delete<Jugadores>(`http://localhost:3000/players/${id}`)
+  }
+
 }
