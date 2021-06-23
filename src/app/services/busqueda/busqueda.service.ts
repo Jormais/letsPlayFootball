@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class BusquedaService {
 
   search : string = "";
+  tipoDeBusqueda : string = "";
 
   constructor() { }
 }

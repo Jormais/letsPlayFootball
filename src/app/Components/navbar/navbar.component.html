@@ -12,6 +12,16 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Jugadores</a>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              ¿Que buscamos?
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" (click)="setTipoDeBusqueda('jugador')">Por nombre de jugador</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" (click)="setTipoDeBusqueda('equipo')">Por nombre de equipo</a></li>
+            </ul>
+          </li>
         </ul>
         <form #search="ngForm" class="d-flex" (ngSubmit)="busqueda(search)">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" ngModel #search="ngModel">
