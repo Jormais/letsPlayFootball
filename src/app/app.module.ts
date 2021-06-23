@@ -7,6 +7,7 @@ import { LigasComponent } from './Components/ligas/ligas.component';
 import { EquiposComponent } from './Components/equipos/equipos.component';
 import { JugadoresComponent } from './Components/jugadores/jugadores.component';
 import { JugadorComponent } from './Components/jugador/jugador.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { JugadorComponent } from './Components/jugador/jugador.component';
     LigasComponent,
     EquiposComponent,
     JugadoresComponent,
-    JugadorComponent
+    JugadorComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
