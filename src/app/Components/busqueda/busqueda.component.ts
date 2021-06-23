@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Jugadores } from 'src/app/interfaces/jugadores';
 import { BusquedaService } from 'src/app/services/busqueda/busqueda.service';
+import { JugadoresService } from 'src/app/services/jugadores/jugadores.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -8,13 +10,18 @@ import { BusquedaService } from 'src/app/services/busqueda/busqueda.service';
 })
 export class BusquedaComponent implements OnInit {
 
-  busqueda : string = this.burquedaService.search;
+  busqueda : string = "";
+  jugadores : Jugadores[] = [];
+  jugadoresFiltrados : Jugadores[] = [];
 
-  constructor(private burquedaService : BusquedaService) { }
-
-  ngOnInit(): void {
-    console.log(this.busqueda);
-    
+  constructor(private busquedaService : BusquedaService, private jugadoresService : JugadoresService) { 
+    this.busqueda = busquedaService.search;
+    jugadoresService.sendGetRequest().subscribe( jugador => {
+      this.jugadores = jugador;
+      this.jugadoresFiltrados = this.jugadores.filter( j => j['Nombre del Jugador'].toLowerCase().indexOf(this.busqueda.toLowerCase()) !== -1)
+    });
   }
+
+  ngOnInit(): void { }
 
 }
