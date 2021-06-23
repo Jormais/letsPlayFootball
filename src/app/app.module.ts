@@ -11,6 +11,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { BusquedaComponent } from './Components/busqueda/busqueda.component';
 import { BusquedaEquiposComponent } from './Components/busqueda-equipos/busqueda-equipos.component';
+import { AddEditComponent } from './Components/add-edit/add-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BusquedaEquiposComponent } from './Components/busqueda-equipos/busqueda
     JugadorComponent,
     NavbarComponent,
     BusquedaComponent,
-    BusquedaEquiposComponent
+    BusquedaEquiposComponent,
+    AddEditComponent
   ],
   imports: [
     BrowserModule,
