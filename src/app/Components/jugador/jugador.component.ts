@@ -14,7 +14,7 @@ export class JugadorComponent implements OnInit {
 
   constructor(private route : ActivatedRoute, private jugadorService : JugadorService) {
     const id = this.route.snapshot.paramMap.get('id') as string;
-    jugadorService.sendGetRequest(id).subscribe( jugador => this.jugador = jugador);
+    jugadorService.sendGetRequestByID(id).subscribe( jugador => this.jugador = jugador);
   }
 
   ngOnInit(): void {

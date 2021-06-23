@@ -13,4 +13,8 @@ export class EquiposService {
   sendGetRequest() : Observable<Equipos[]> {
     return this.httpClient.get<Equipos[]>('http://localhost:3000/teams');
   }
+
+  sendGetRequestByID(id : string) : Observable<Equipos[]> {
+    return this.httpClient.get<Equipos[]>(`http://localhost:3000/teams?id=${id}`);
+  }
 }

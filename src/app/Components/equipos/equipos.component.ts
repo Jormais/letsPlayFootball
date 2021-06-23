@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Equipos } from 'src/app/interfaces/equipos';
 import { EquiposService } from 'src/app/services/equipos/equipos.service';
+import { LeaguesService } from 'src/app/services/leagues/leagues.service';
 
 @Component({
   selector: 'app-equipos',
@@ -10,10 +12,16 @@ import { EquiposService } from 'src/app/services/equipos/equipos.service';
 export class EquiposComponent implements OnInit {
 
   equipos : Equipos[] = [];
+  equiporFiltrados : Equipos[] = [];
 
-  constructor(private equiposService : EquiposService) {
+  constructor(private leaguesService : LeaguesService ,private equiposService : EquiposService, private route : ActivatedRoute) {
     equiposService.sendGetRequest().subscribe( equipo => {
-        return this.equipos = equipo;
+        this.equipos = equipo;
+        this.equipos.map( x => {
+          if(x.Liga === this.leaguesService.idLeague) {
+            this.equiporFiltrados.push(x)
+          }
+        });
       });
   }
 
