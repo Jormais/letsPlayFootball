@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BusquedaComponent } from './Components/busqueda/busqueda.component';
 import { EquiposComponent } from './Components/equipos/equipos.component';
 import { JugadorComponent } from './Components/jugador/jugador.component';
 import { JugadoresComponent } from './Components/jugadores/jugadores.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path : "jugador/:id",
     component : JugadorComponent
+  },
+  {
+    path : "busqueda",
+    component : BusquedaComponent
   }
 ];
 
