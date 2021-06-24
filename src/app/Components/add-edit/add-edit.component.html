@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder="Nombre jugador" [(ngModel)]="jugador['Nombre del Jugador']" name='Nombre del Jugador'>
+        <label for="floatingInput">Nombre jugador</label>
+    </div>
+    <div class="form-floating">
+            <input type="text" class="form-control" placeholder="Link avatar" [(ngModel)]="jugador.Avatar" name='Avatar'>
+        <label for="floatingInput">Link avatar</label>
+    </div>
+    <div class="form-floating">
+        <input type="text" class="form-control" placeholder="ID jugador" [(ngModel)]="jugador.id" name='id'>
+        <label for="floatingInput">ID jugador</label>
+    </div>
+    <div class="form-floating">
+        <input type="text" class="form-control" placeholder="Team id" [(ngModel)]="jugador.teamId" name='teamId'>
+        <label for="floatingInput">Team id</label>
+    </div>
+    <div class="container-fluid h-100"> 
+        <div class="row w-100 align-items-center">
+            <div class="col text-center">
+                <button class="btn btn-success regular-button" (click)="guardar(jugador)">Guardar</button>
+            </div>	
+        </div>
+    </div>
+</div>
