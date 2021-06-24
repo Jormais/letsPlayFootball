@@ -27,8 +27,5 @@ export class EquiposService {
   sendDeleteRequest(id : string) : Observable<Equipos> {
     return this.httpClient.delete<Equipos>(`http://localhost:3000/teams/${id}`)
   }
-
-  sendGetRequestByID(id : string) : Observable<Equipos[]> {
-    return this.httpClient.get<Equipos[]>(`http://localhost:3000/teams?id=${id}`);
-  }
+  
 }
