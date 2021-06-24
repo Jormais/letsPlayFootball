@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Jugadores } from 'src/app/interfaces/jugadores';
 import { JugadoresService } from 'src/app/services/jugadores/jugadores.service';
 
@@ -17,7 +17,7 @@ export class AddEditComponent implements OnInit {
     teamId:""
   }
 
-  constructor(private route : ActivatedRoute, private juadoresService : JugadoresService) { 
+  constructor(private route : ActivatedRoute, private juadoresService : JugadoresService, private router : Router) { 
     this.id = this.route.snapshot.paramMap.get('id') as string;
     console.log(this.id);
     
@@ -29,16 +29,44 @@ export class AddEditComponent implements OnInit {
   }
 
   guardar(jugador : Jugadores) {
+    let isTrue : boolean;
     if (this.id === null) {
       console.log("Se ha llegado por el navbar");
       this.juadoresService.sendPostRequest(jugador).subscribe(data => {
         console.log(data);
+        if (data['Nombre del Jugador'] != "") {
+          isTrue = true;
+        }
+        if (isTrue) {
+          this.router.navigateByUrl("").then(e => {
+            if (e) {
+              console.log("Navigation is successful!");
+              isTrue = false;
+            } else {
+              console.log("Navigation has failed!");
+              isTrue = false;
+            }
+          });
+        }
       });
     } else {
       console.log("se ha llegado por el jugador");
       this.juadoresService.sendPutRequest(jugador, this.id).subscribe(data => {
         console.log(data);
-        
+        if (data['Nombre del Jugador'] != "") {
+          isTrue = true;
+        }
+        if (isTrue) {
+          this.router.navigateByUrl("").then(e => {
+            if (e) {
+              console.log("Navigation is successful!");
+              isTrue = false;
+            } else {
+              console.log("Navigation has failed!");
+              isTrue = false;
+            }
+          });
+        }
       })
     }
   }

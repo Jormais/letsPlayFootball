@@ -6,7 +6,7 @@
         <div class="card-body">
             <h5 class="card-title">{{j['Nombre del Jugador']}}</h5>
             <a [routerLink]="['/editar-crear', j.id]" class="btn btn-primary">Editar jugador</a>
-            <a class="btn btn-danger">Eliminar jugador</a>
+            <a class="btn btn-danger" (click)="borrar()">Eliminar jugador</a>
         </div>
     </div>
 
