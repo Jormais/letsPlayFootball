@@ -55,4 +55,14 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  crearEditar(url :string) {
+    this.router.navigateByUrl(url).then(e => {
+      if (e) {
+        console.log("Navigation is successful!");
+      } else {
+        console.log("Navigation has failed!");
+      }
+    });
+  }
+
 }

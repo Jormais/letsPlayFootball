@@ -13,7 +13,7 @@ export class LeaguesService {
   constructor(public httpClient: HttpClient) { }
 
   sendGetRequest() : Observable<Leagues[]> {
-    return this.httpClient.get<Leagues[]>('http://localhost:3000/leagues');
+    return this.httpClient.get<Leagues[]>('https://footbal-api.herokuapp.com/leagues');
   }
 
 }
