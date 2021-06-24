@@ -11,14 +11,16 @@ import { JugadoresService } from 'src/app/services/jugadores/jugadores.service';
 export class AddEditComponent implements OnInit {
   id :string = "";
   jugador : Jugadores = {
-    'Nombre del Jugador' : "jonay",
-    id : "123456789",
-    Avatar : "https://steamavatar.io/img/14773518797UrEY.png",
-    teamId:"8154f4cb-246b-4bf9-bc64-51f8661b6781"
+    'Nombre del Jugador' : "",
+    id : "",
+    Avatar : "",
+    teamId:""
   }
 
   constructor(private route : ActivatedRoute, private juadoresService : JugadoresService) { 
     this.id = this.route.snapshot.paramMap.get('id') as string;
+    console.log(this.id);
+    
   }
 
   
@@ -26,8 +28,8 @@ export class AddEditComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  guardar() {
-    this.juadoresService.sendPostRequest(this.jugador).subscribe(data => {
+  guardar(jugador : Jugadores) {
+    this.juadoresService.sendPostRequest(jugador).subscribe(data => {
       console.log(data);
     });
   }

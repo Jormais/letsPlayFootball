@@ -36,6 +36,10 @@ const routes: Routes = [
   {
     path : "editar-crear/:id",
     component : AddEditComponent
+  },
+  {
+    path : "editar-crear",
+    component : AddEditComponent
   }
 ];
 
