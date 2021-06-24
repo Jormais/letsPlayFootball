@@ -1,0 +1,13 @@
+.form-floating{
+    margin: 50px ;
+}
+
+.btn{
+    width: 80vh;
+}
+
+@media screen and (max-width: 600px) {
+    .btn {
+        width: 150px;
+    }
+}
