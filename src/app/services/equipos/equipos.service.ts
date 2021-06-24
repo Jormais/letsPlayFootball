@@ -17,15 +17,15 @@ export class EquiposService {
   }
 
   sendPostRequest(equipo : Equipos) : Observable<Equipos> {
-    return this.httpClient.post<Equipos>('http://localhost:3000/players', equipo);
+    return this.httpClient.post<Equipos>('http://localhost:3000/teams', equipo);
   }
 
   sendPutRequest(equipo : Equipos, id :string) : Observable<Equipos> {
-    return this.httpClient.put<Equipos>(`http://localhost:3000/players/${id}`, equipo)
+    return this.httpClient.put<Equipos>(`http://localhost:3000/teams/${id}`, equipo)
   }
 
   sendDeleteRequest(id : string) : Observable<Equipos> {
-    return this.httpClient.delete<Equipos>(`http://localhost:3000/players/${id}`)
+    return this.httpClient.delete<Equipos>(`http://localhost:3000/teams/${id}`)
   }
 
   sendGetRequestByID(id : string) : Observable<Equipos[]> {

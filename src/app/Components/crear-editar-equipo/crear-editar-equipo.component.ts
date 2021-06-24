@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Equipos } from 'src/app/interfaces/equipos';
+import { EquiposService } from 'src/app/services/equipos/equipos.service';
 
 @Component({
   selector: 'app-crear-editar-equipo',
@@ -16,13 +17,16 @@ export class CrearEditarEquipoComponent implements OnInit {
     Liga : ""
 }
 
-  constructor() { }
+  constructor(private equiposService : EquiposService) { }
 
   ngOnInit(): void {
   }
 
-  guardar(){
-
+  guardar(equipo : Equipos){
+    this.equiposService.sendPostRequest(equipo).subscribe( datos => {
+      console.log(datos);
+      
+    })
   }
 
 }
