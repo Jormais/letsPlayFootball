@@ -45,6 +45,10 @@ const routes: Routes = [
   {
     path : "crear-editar-equipo",
     component : CrearEditarEquipoComponent
+  },
+  {
+    path : "crear-editar-equipo/:id",
+    component : CrearEditarEquipoComponent
   }
 ];
 

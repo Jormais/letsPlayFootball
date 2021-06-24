@@ -5,7 +5,7 @@
         <img src="{{j.Avatar}}" class="card-img-top" alt="Logo de equipo"  width="50" height="60">
         <div class="card-body">
             <h5 class="card-title">{{j['Nombre del Jugador']}}</h5>
-            <a [routerLink]="['/editar-crear', j.id]" class="btn btn-primary">Editar jugador</a>
+            <a [routerLink]="['/editar-crear', j.id]" class="btn btn-success">Editar jugador</a>
             <a class="btn btn-danger" (click)="borrar()">Eliminar jugador</a>
         </div>
     </div>

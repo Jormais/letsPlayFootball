@@ -6,6 +6,7 @@
         <div class="card-body">
             <h5 class="card-title">{{equipo['Nombre del equipo']}}</h5>
             <a routerLink="/equipos/jugadores" class="btn btn-primary" (click)="setIdEquipo(equipo.id)">A jugadores</a>
+            <a [routerLink]="['/crear-editar-equipo', equipo.id]" class="btn btn-success">Editar equipo</a>
         </div>
     </div>
 
