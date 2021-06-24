@@ -16,6 +16,18 @@ export class EquiposService {
     return this.httpClient.get<Equipos[]>('http://localhost:3000/teams');
   }
 
+  sendPostRequest(equipo : Equipos) : Observable<Equipos> {
+    return this.httpClient.post<Equipos>('http://localhost:3000/players', equipo);
+  }
+
+  sendPutRequest(equipo : Equipos, id :string) : Observable<Equipos> {
+    return this.httpClient.put<Equipos>(`http://localhost:3000/players/${id}`, equipo)
+  }
+
+  sendDeleteRequest(id : string) : Observable<Equipos> {
+    return this.httpClient.delete<Equipos>(`http://localhost:3000/players/${id}`)
+  }
+
   sendGetRequestByID(id : string) : Observable<Equipos[]> {
     return this.httpClient.get<Equipos[]>(`http://localhost:3000/teams?id=${id}`);
   }
