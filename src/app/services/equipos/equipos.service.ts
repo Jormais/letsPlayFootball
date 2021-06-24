@@ -13,19 +13,19 @@ export class EquiposService {
   constructor(public httpClient: HttpClient) { }
 
   sendGetRequest() : Observable<Equipos[]> {
-    return this.httpClient.get<Equipos[]>('http://localhost:3000/teams');
+    return this.httpClient.get<Equipos[]>('https://footbal-api.herokuapp.com/teams');
   }
 
   sendPostRequest(equipo : Equipos) : Observable<Equipos> {
-    return this.httpClient.post<Equipos>('http://localhost:3000/teams', equipo);
+    return this.httpClient.post<Equipos>('https://footbal-api.herokuapp.com/teams', equipo);
   }
 
   sendPutRequest(equipo : Equipos, id :string) : Observable<Equipos> {
-    return this.httpClient.put<Equipos>(`http://localhost:3000/teams/${id}`, equipo)
+    return this.httpClient.put<Equipos>(`https://footbal-api.herokuapp.com/teams/${id}`, equipo)
   }
 
   sendDeleteRequest(id : string) : Observable<Equipos> {
-    return this.httpClient.delete<Equipos>(`http://localhost:3000/teams/${id}`)
+    return this.httpClient.delete<Equipos>(`https://footbal-api.herokuapp.com/teams/${id}`)
   }
   
 }

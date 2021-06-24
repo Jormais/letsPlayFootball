@@ -11,19 +11,19 @@ export class JugadoresService {
   constructor(public httpClient: HttpClient) { }
 
   sendGetRequest() : Observable<Jugadores[]> {
-    return this.httpClient.get<Jugadores[]>('http://localhost:3000/players');
+    return this.httpClient.get<Jugadores[]>('https://footbal-api.herokuapp.com/players');
   }
 
   sendPostRequest(jugador : Jugadores) : Observable<Jugadores> {
-    return this.httpClient.post<Jugadores>('http://localhost:3000/players', jugador);
+    return this.httpClient.post<Jugadores>('https://footbal-api.herokuapp.com/players', jugador);
   }
 
   sendPutRequest(jugador :Jugadores, id :string) : Observable<Jugadores> {
-    return this.httpClient.put<Jugadores>(`http://localhost:3000/players/${id}`, jugador)
+    return this.httpClient.put<Jugadores>(`https://footbal-api.herokuapp.com/players/${id}`, jugador)
   }
 
   sendDeleteRequest(id : string) : Observable<Jugadores> {
-    return this.httpClient.delete<Jugadores>(`http://localhost:3000/players/${id}`)
+    return this.httpClient.delete<Jugadores>(`https://footbal-api.herokuapp.com/players/${id}`)
   }
 
 }
