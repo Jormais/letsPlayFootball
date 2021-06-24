@@ -632,7 +632,7 @@
     {
       "Nombre del Jugador": "Auguste Penwarden",
       "id": "ca85cfed-69d8-4e03-9259-960195bde933",
-      "Avatar": "https://robohash.org/etconsequunturreprehenderit.png?size=250x250&set=set1",
+      "Avatar": "https://steamavatar.io/img/14773518797UrEY.png",
       "teamId": "8154f4cb-246b-4bf9-bc64-51f8661b6781"
     },
     {
@@ -7834,18 +7834,6 @@
       "id": "123456789",
       "Avatar": "https://steamavatar.io/img/14773518797UrEY.png",
       "teamId": "8154f4cb-246b-4bf9-bc64-51f8661b6781"
-    },
-    {
-      "Nombre del Jugador": "Jugador",
-      "id": "https://steamavatar.io/img/14773518797UrEY.png",
-      "Avatar": "1111111",
-      "teamId": "8154f4cb-246b-4bf9-bc64-51f8661b6781"
-    },
-    {
-      "Nombre del Jugador": "Prueba1",
-      "id": "Pru2sadsd",
-      "Avatar": "asdqwe124234s",
-      "teamId": "sdsadsdsad"
     }
   ]
 }

@@ -29,9 +29,18 @@ export class AddEditComponent implements OnInit {
   }
 
   guardar(jugador : Jugadores) {
-    this.juadoresService.sendPostRequest(jugador).subscribe(data => {
-      console.log(data);
-    });
+    if (this.id === null) {
+      console.log("Se ha llegado por el navbar");
+      this.juadoresService.sendPostRequest(jugador).subscribe(data => {
+        console.log(data);
+      });
+    } else {
+      console.log("se ha llegado por el jugador");
+      this.juadoresService.sendPutRequest(jugador, this.id).subscribe(data => {
+        console.log(data);
+        
+      })
+    }
   }
 
 }
