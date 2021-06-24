@@ -69,4 +69,6 @@ export class CrearEditarEquipoComponent implements OnInit {
     }
   }
 
+
+
 }
