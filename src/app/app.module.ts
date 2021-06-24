@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { BusquedaComponent } from './Components/busqueda/busqueda.component';
 import { BusquedaEquiposComponent } from './Components/busqueda-equipos/busqueda-equipos.component';
 import { AddEditComponent } from './Components/add-edit/add-edit.component';
+import { CrearEditarEquipoComponent } from './Components/crear-editar-equipo/crear-editar-equipo.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AddEditComponent } from './Components/add-edit/add-edit.component';
     NavbarComponent,
     BusquedaComponent,
     BusquedaEquiposComponent,
-    AddEditComponent
+    AddEditComponent,
+    CrearEditarEquipoComponent
   ],
   imports: [
     BrowserModule,
