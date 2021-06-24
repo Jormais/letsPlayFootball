@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddEditComponent } from './Components/add-edit/add-edit.component';
 import { BusquedaEquiposComponent } from './Components/busqueda-equipos/busqueda-equipos.component';
 import { BusquedaComponent } from './Components/busqueda/busqueda.component';
+import { CrearEditarEquipoComponent } from './Components/crear-editar-equipo/crear-editar-equipo.component';
 import { EquiposComponent } from './Components/equipos/equipos.component';
 import { JugadorComponent } from './Components/jugador/jugador.component';
 import { JugadoresComponent } from './Components/jugadores/jugadores.component';
@@ -40,6 +41,14 @@ const routes: Routes = [
   {
     path : "editar-crear",
     component : AddEditComponent
+  },
+  {
+    path : "crear-editar-equipo",
+    component : CrearEditarEquipoComponent
+  },
+  {
+    path : "crear-editar-equipo/:id",
+    component : CrearEditarEquipoComponent
   }
 ];
 
