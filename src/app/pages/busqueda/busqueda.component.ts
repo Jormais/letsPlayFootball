@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Jugadores } from 'src/app/interfaces/jugadores';
 import { BusquedaService } from 'src/app/services/busqueda/busqueda.service';
-import { JugadoresService } from 'src/app/services/jugadores/jugadores.service';
+import { JugadorService } from 'src/app/services/jugador/jugador.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -14,9 +14,9 @@ export class BusquedaComponent implements OnInit {
   jugadores : Jugadores[] = [];
   jugadoresFiltrados : Jugadores[] = [];
 
-  constructor(private busquedaService : BusquedaService, private jugadoresService : JugadoresService) { 
+  constructor(private busquedaService : BusquedaService, private jugadorService : JugadorService) { 
     this.busqueda = busquedaService.search;
-    jugadoresService.sendGetRequest().subscribe( jugador => {
+    jugadorService.sendGetRequest().subscribe( jugador => {
       this.jugadores = jugador;
       this.jugadoresFiltrados = this.jugadores.filter( j => j['Nombre del Jugador'].toLowerCase().indexOf(this.busqueda.toLowerCase()) !== -1)
     });
