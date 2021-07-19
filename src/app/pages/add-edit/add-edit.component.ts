@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Jugadores } from 'src/app/interfaces/jugadores';
-import { JugadoresService } from 'src/app/services/jugadores/jugadores.service';
+import { JugadorService } from 'src/app/services/jugador/jugador.service';
 
 @Component({
   selector: 'app-add-edit',
@@ -17,7 +17,7 @@ export class AddEditComponent implements OnInit {
     teamId:""
   }
 
-  constructor(private route : ActivatedRoute, private juadoresService : JugadoresService, private router : Router) { 
+  constructor(private route : ActivatedRoute, private juadorService : JugadorService, private router : Router) { 
     this.id = this.route.snapshot.paramMap.get('id') as string;
     console.log(this.id);
     
@@ -32,7 +32,7 @@ export class AddEditComponent implements OnInit {
     let isTrue : boolean;
     if (this.id === null) {
       console.log("Se ha llegado por el navbar");
-      this.juadoresService.sendPostRequest(jugador).subscribe(data => {
+      this.juadorService.sendPostRequest(jugador).subscribe(data => {
         console.log(data);
         if (data['Nombre del Jugador'] != "") {
           isTrue = true;
@@ -51,7 +51,7 @@ export class AddEditComponent implements OnInit {
       });
     } else {
       console.log("se ha llegado por el jugador");
-      this.juadoresService.sendPutRequest(jugador, this.id).subscribe(data => {
+      this.juadorService.sendPutRequest(jugador, this.id).subscribe(data => {
         console.log(data);
         if (data['Nombre del Jugador'] != "") {
           isTrue = true;
