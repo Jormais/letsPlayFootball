@@ -3,7 +3,7 @@ import { Equipos } from 'src/app/interfaces/equipos';
 import { Jugadores } from 'src/app/interfaces/jugadores';
 import { BusquedaService } from 'src/app/services/busqueda/busqueda.service';
 import { EquiposService } from 'src/app/services/equipos/equipos.service';
-import { JugadoresService } from 'src/app/services/jugadores/jugadores.service';
+import { JugadorService } from 'src/app/services/jugador/jugador.service';
 
 @Component({
   selector: 'app-busqueda-equipos',
@@ -17,7 +17,7 @@ export class BusquedaEquiposComponent implements OnInit {
   equipos : Equipos[] = [];
   equiporFiltrados!: Equipos;
 
-  constructor(private busquedaService : BusquedaService, private equiposService : EquiposService, private jugadoresService : JugadoresService) { 
+  constructor(private busquedaService : BusquedaService, private equiposService : EquiposService, private jugadorService : JugadorService) { 
     this.busqueda = busquedaService.search;
     equiposService.sendGetRequest().subscribe( equipo => {
       this.equipos = equipo;
@@ -27,7 +27,7 @@ export class BusquedaEquiposComponent implements OnInit {
         }
       });
     });
-    jugadoresService.sendGetRequest().subscribe( jugador => {
+    jugadorService.sendGetRequest().subscribe( jugador => {
       this.jugadores = jugador;
       this.jugadores.map( x => {
         if(x.teamId === this.equiporFiltrados.id) {
