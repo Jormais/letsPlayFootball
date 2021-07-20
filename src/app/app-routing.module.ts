@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddEditComponent } from './pages/add-edit/add-edit.component';
+import { AddEditjugadorComponent } from './pages/add-edit-jugadores/add-edit-jugador.component';
 import { BusquedaEquiposComponent } from './pages/busqueda-equipos/busqueda-equipos.component';
 import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 import { CrearEditarEquipoComponent } from './pages/crear-editar-equipo/crear-editar-equipo.component';
@@ -36,11 +36,11 @@ const routes: Routes = [
   },
   {
     path : "editar-crear/:id",
-    component : AddEditComponent
+    component : AddEditjugadorComponent
   },
   {
     path : "editar-crear",
-    component : AddEditComponent
+    component : AddEditjugadorComponent
   },
   {
     path : "crear-editar-equipo",

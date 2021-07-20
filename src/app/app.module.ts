@@ -11,7 +11,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 import { BusquedaEquiposComponent } from './pages/busqueda-equipos/busqueda-equipos.component';
-import { AddEditComponent } from './pages/add-edit/add-edit.component';
+import { AddEditjugadorComponent } from './pages/add-edit-jugadores/add-edit-jugador.component';
 import { CrearEditarEquipoComponent } from './pages/crear-editar-equipo/crear-editar-equipo.component';
 
 @NgModule({
@@ -24,7 +24,7 @@ import { CrearEditarEquipoComponent } from './pages/crear-editar-equipo/crear-ed
     NavbarComponent,
     BusquedaComponent,
     BusquedaEquiposComponent,
-    AddEditComponent,
+    AddEditjugadorComponent,
     CrearEditarEquipoComponent
   ],
   imports: [
