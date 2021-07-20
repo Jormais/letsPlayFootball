@@ -19,8 +19,9 @@ export class AddEditComponent implements OnInit {
 
   constructor(private route : ActivatedRoute, private juadorService : JugadorService, private router : Router) { 
     this.id = this.route.snapshot.paramMap.get('id') as string;
-    console.log(this.id);
-    
+    this.juadorService.sendGetRequestByID(this.id).subscribe(jugador => {
+      this.jugador = jugador[0];
+    })
   }
 
   
