@@ -12,7 +12,7 @@ export class LeaguesService {
   idLeague : string = "";
   apiUrl = environment.apiUrl;
 
-  constructor(public httpClient: HttpClient) { console.log(this.apiUrl); }
+  constructor(public httpClient: HttpClient) { console.log("esta en el entorno: \n" + this.apiUrl); }
 
   sendGetRequest() : Observable<Leagues[]> {
     return this.httpClient.get<Leagues[]>(this.apiUrl + 'leagues');
