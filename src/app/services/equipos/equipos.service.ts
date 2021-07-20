@@ -14,6 +14,10 @@ export class EquiposService {
 
   constructor(public httpClient: HttpClient) { }
 
+  sendGetRequestByID(id : string) : Observable<Equipos[]> {
+    return this.httpClient.get<Equipos[]>(this.apiUrl  + `teams?id=${id}`);
+  }
+
   sendGetRequest() : Observable<Equipos[]> {
     return this.httpClient.get<Equipos[]>(this.apiUrl + 'teams');
   }
