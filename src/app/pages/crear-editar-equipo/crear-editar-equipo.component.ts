@@ -20,6 +20,9 @@ export class CrearEditarEquipoComponent implements OnInit {
 
   constructor(private route : ActivatedRoute,private equiposService : EquiposService, private router : Router) {
     this.id = this.route.snapshot.paramMap.get('id') as string;
+    this.equiposService.sendGetRequestByID(this.id).subscribe(equipo => {
+      this.equipo = equipo[0];
+    })
   }
 
   ngOnInit(): void {
