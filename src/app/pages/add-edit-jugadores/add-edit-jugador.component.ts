@@ -4,11 +4,11 @@ import { Jugadores } from 'src/app/interfaces/jugadores';
 import { JugadorService } from 'src/app/services/jugador/jugador.service';
 
 @Component({
-  selector: 'app-add-edit',
-  templateUrl: './add-edit.component.html',
-  styleUrls: ['./add-edit.component.css']
+  selector: 'app-add-edit-jugador',
+  templateUrl: './add-edit-jugador.component.html',
+  styleUrls: ['./add-edit-jugador.component.css']
 })
-export class AddEditComponent implements OnInit {
+export class AddEditjugadorComponent implements OnInit {
   id :string = "";
   jugador : Jugadores = {
     'Nombre del Jugador' : "",
