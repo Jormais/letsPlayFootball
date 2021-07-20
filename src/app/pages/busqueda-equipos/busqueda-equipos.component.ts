@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Equipos } from 'src/app/interfaces/equipos';
 import { Jugadores } from 'src/app/interfaces/jugadores';
-import { BusquedaService } from 'src/app/services/busqueda/busqueda.service';
 import { EquiposService } from 'src/app/services/equipos/equipos.service';
 import { JugadorService } from 'src/app/services/jugador/jugador.service';
 
@@ -17,8 +16,8 @@ export class BusquedaEquiposComponent implements OnInit {
   equipos : Equipos[] = [];
   equiporFiltrados!: Equipos;
 
-  constructor(private busquedaService : BusquedaService, private equiposService : EquiposService, private jugadorService : JugadorService) { 
-    this.busqueda = busquedaService.search;
+  constructor(private equiposService : EquiposService, private jugadorService : JugadorService) { 
+    this.busqueda = localStorage.getItem("busqueda") || "";
     equiposService.sendGetRequest().subscribe( equipo => {
       this.equipos = equipo;
       this.equipos.map( x => {
