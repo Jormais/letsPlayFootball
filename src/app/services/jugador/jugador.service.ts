@@ -15,7 +15,7 @@ export class JugadorService {
   constructor(public httpClient: HttpClient) { }
 
   sendGetRequestByID(id : string) : Observable<Jugadores[]> {
-    return this.httpClient.get<Jugadores[]>(this.apiUrl  + `?id=${id}`);
+    return this.httpClient.get<Jugadores[]>(this.apiUrl  + `players?id=${id}`);
   }
   
   sendGetRequest() : Observable<Jugadores[]> {
