@@ -9,6 +9,8 @@ import { JugadorService } from 'src/app/services/jugador/jugador.service';
   styleUrls: ['./add-edit-jugador.component.css']
 })
 export class AddEditjugadorComponent implements OnInit {
+
+  creandoJugador : boolean = false;
   id :string = "";
   jugador : Jugadores = {
     'Nombre del Jugador' : "",
@@ -19,9 +21,15 @@ export class AddEditjugadorComponent implements OnInit {
 
   constructor(private route : ActivatedRoute, private juadorService : JugadorService, private router : Router) { 
     this.id = this.route.snapshot.paramMap.get('id') as string;
-    this.juadorService.sendGetRequestByID(this.id).subscribe(jugador => {
-      this.jugador = jugador[0];
-    })
+    console.log(this.id);
+    if (this.id === null) {
+      this.creandoJugador = true;
+    } else {
+      this.creandoJugador = false;
+      this.juadorService.sendGetRequestByID(this.id).subscribe(jugador => {
+        this.jugador = jugador[0];
+      });
+    }
   }
 
   
