@@ -8,8 +8,12 @@
             <input type="text" class="form-control" placeholder="Link logo del equipo" [(ngModel)]="equipo['Logo del Equipo']" name='Logo del Equipo'>
         <label for="floatingInput">Link logo del equipo</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating" *ngIf="(creandoEquipo)">
         <input type="text" class="form-control" placeholder="ID equipo" [(ngModel)]="equipo.id" name='id'>
+        <label for="floatingInput">ID equipo</label>
+    </div>
+    <div class="form-floating" *ngIf="(!creandoEquipo)">
+        <input type="text" class="form-control" placeholder="ID equipo" [(ngModel)]="equipo.id" name='id' disabled>
         <label for="floatingInput">ID equipo</label>
     </div>
     <div class="form-floating">

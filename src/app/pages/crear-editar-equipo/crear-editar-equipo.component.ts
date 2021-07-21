@@ -10,6 +10,7 @@ import { EquiposService } from 'src/app/services/equipos/equipos.service';
 })
 export class CrearEditarEquipoComponent implements OnInit {
 
+  creandoEquipo : boolean = false;
   id :string = "";
   equipo :Equipos = {
     'Nombre del equipo': "",
@@ -20,9 +21,15 @@ export class CrearEditarEquipoComponent implements OnInit {
 
   constructor(private route : ActivatedRoute,private equiposService : EquiposService, private router : Router) {
     this.id = this.route.snapshot.paramMap.get('id') as string;
-    this.equiposService.sendGetRequestByID(this.id).subscribe(equipo => {
-      this.equipo = equipo[0];
-    })
+    console.log(this.id);
+    if (this.id === null) {
+      this.creandoEquipo = true;
+    } else {
+      this.creandoEquipo = false;
+      this.equiposService.sendGetRequestByID(this.id).subscribe(equipo => {
+        this.equipo = equipo[0];
+      });
+    }
   }
 
   ngOnInit(): void {
