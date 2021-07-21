@@ -37,22 +37,22 @@ export class CrearEditarEquipoComponent implements OnInit {
 
   guardar(equipo : Equipos){
   
-    let isTrue : boolean;
+    let existenDatos : boolean;
     if (this.id === null) {
       console.log("Se ha llegado por el navbar");
       this.equiposService.sendPostRequest(equipo).subscribe(data => {
         console.log(data);
         if (data['Nombre del equipo'] != "") {
-          isTrue = true;
+          existenDatos = true;
         }
-        if (isTrue) {
+        if (existenDatos) {
           this.router.navigateByUrl("").then(e => {
             if (e) {
               console.log("Navigation is successful!");
-              isTrue = false;
+              existenDatos = false;
             } else {
               console.log("Navigation has failed!");
-              isTrue = false;
+              existenDatos = false;
             }
           });
         }
@@ -62,16 +62,16 @@ export class CrearEditarEquipoComponent implements OnInit {
       this.equiposService.sendPutRequest(equipo, this.id).subscribe(data => {
         console.log(data);
         if (data['Nombre del equipo'] != "") {
-          isTrue = true;
+          existenDatos = true;
         }
-        if (isTrue) {
+        if (existenDatos) {
           this.router.navigateByUrl("").then(e => {
             if (e) {
               console.log("Navigation is successful!");
-              isTrue = false;
+              existenDatos = false;
             } else {
               console.log("Navigation has failed!");
-              isTrue = false;
+              existenDatos = false;
             }
           });
         }
