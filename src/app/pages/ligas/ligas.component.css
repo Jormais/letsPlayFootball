@@ -1,15 +1,12 @@
 .grid-container {
-    display: grid;
-    grid-column-gap: 50px;
-    grid-template-columns: auto auto auto;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
 }
 
 .grid-item {
-    grid-column-start: 2;
-    grid-column-end: five;
-    grid-row-start: row1-start;
-    grid-row-end: 3;
     align-items: center;
     text-align: center;
 }
