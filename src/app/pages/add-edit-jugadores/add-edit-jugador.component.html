@@ -8,8 +8,12 @@
             <input type="text" class="form-control" placeholder="Link avatar" [(ngModel)]="jugador.Avatar" name='Avatar'>
         <label for="floatingInput">Link avatar</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating" *ngIf="(creandoJugador)">
         <input type="text" class="form-control" placeholder="ID jugador" [(ngModel)]="jugador.id" name='id'>
+        <label for="floatingInput">ID jugador</label>
+    </div>
+    <div class="form-floating" *ngIf="(!creandoJugador)">
+        <input type="text" class="form-control" placeholder="ID jugador" [(ngModel)]="jugador.id" name='id' disabled>
         <label for="floatingInput">ID jugador</label>
     </div>
     <div class="form-floating">
