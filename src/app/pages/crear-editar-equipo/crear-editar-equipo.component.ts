@@ -26,7 +26,7 @@ export class CrearEditarEquipoComponent implements OnInit {
       this.creandoEquipo = true;
     } else {
       this.creandoEquipo = false;
-      this.teamsService.sendGetRequestByID(this.id).subscribe(equipo => {
+      this.teamsService.getTeamByID(this.id).subscribe(equipo => {
         this.equipo = equipo[0];
       });
     }
@@ -40,7 +40,7 @@ export class CrearEditarEquipoComponent implements OnInit {
     let existenDatos : boolean;
     if (this.id === null) {
       console.log("Se ha llegado por el navbar");
-      this.teamsService.sendPostRequest(equipo).subscribe(data => {
+      this.teamsService.createTeam(equipo).subscribe(data => {
         console.log(data);
         if (data['Nombre del equipo'] != "") {
           existenDatos = true;
@@ -59,7 +59,7 @@ export class CrearEditarEquipoComponent implements OnInit {
       });
     } else {
       console.log("se ha llegado por el euipo");
-      this.teamsService.sendPutRequest(equipo, this.id).subscribe(data => {
+      this.teamsService.editTeam(equipo, this.id).subscribe(data => {
         console.log(data);
         if (data['Nombre del equipo'] != "") {
           existenDatos = true;

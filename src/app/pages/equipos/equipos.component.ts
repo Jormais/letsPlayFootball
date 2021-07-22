@@ -15,7 +15,7 @@ export class EquiposComponent implements OnInit {
   equiporFiltrados : Equipos[] = [];
 
   constructor(private leaguesService : LeaguesService ,private teamsService : TeamsService, private route : ActivatedRoute,  private router : Router) {
-    teamsService.sendGetRequest().subscribe( equipo => {
+    teamsService.getTeam().subscribe( equipo => {
         this.equipos = equipo;
         this.equipos.map( x => {
           if(x.Liga === this.leaguesService.idLeague) {
@@ -36,7 +36,7 @@ export class EquiposComponent implements OnInit {
     console.log(id);
     
     let isTrue :boolean;
-    this.teamsService.sendDeleteRequest(id).subscribe( data => {
+    this.teamsService.deleteTeam(id).subscribe( data => {
       console.log(data);
       if (data['Nombre del equipo'] != "") {
         isTrue = true;

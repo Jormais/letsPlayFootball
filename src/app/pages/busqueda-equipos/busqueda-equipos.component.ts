@@ -18,7 +18,7 @@ export class BusquedaEquiposComponent implements OnInit {
 
   constructor(private teamsService : TeamsService, private playerService : PlayerService) { 
     this.busqueda = localStorage.getItem("busqueda") || "";
-    teamsService.sendGetRequest().subscribe( equipo => {
+    teamsService.getTeam().subscribe( equipo => {
       this.equipos = equipo;
       this.equipos.map( x => {
         if (x['Nombre del equipo'] === this.busqueda) {

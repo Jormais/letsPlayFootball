@@ -14,23 +14,23 @@ export class TeamsService {
 
   constructor(public httpClient: HttpClient) { }
 
-  sendGetRequestByID(id : string) : Observable<Equipos[]> {
+  getTeamByID(id : string) : Observable<Equipos[]> {
     return this.httpClient.get<Equipos[]>(this.apiUrl  + `teams?id=${id}`);
   }
 
-  sendGetRequest() : Observable<Equipos[]> {
+  getTeam() : Observable<Equipos[]> {
     return this.httpClient.get<Equipos[]>(this.apiUrl + 'teams');
   }
 
-  sendPostRequest(equipo : Equipos) : Observable<Equipos> {
+  createTeam(equipo : Equipos) : Observable<Equipos> {
     return this.httpClient.post<Equipos>(this.apiUrl + 'teams', equipo);
   }
 
-  sendPutRequest(equipo : Equipos, id :string) : Observable<Equipos> {
+  editTeam(equipo : Equipos, id :string) : Observable<Equipos> {
     return this.httpClient.put<Equipos>(this.apiUrl + `teams/${id}`, equipo)
   }
 
-  sendDeleteRequest(id : string) : Observable<Equipos> {
+  deleteTeam(id : string) : Observable<Equipos> {
     return this.httpClient.delete<Equipos>(this.apiUrl + `teams/${id}`)
   }
   
