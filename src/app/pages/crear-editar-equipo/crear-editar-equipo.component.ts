@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Equipos } from 'src/app/interfaces/equipos';
-import { EquiposService } from 'src/app/services/equipos/equipos.service';
+import { TeamsService } from 'src/app/services/teams/teams.service';
 
 @Component({
   selector: 'app-crear-editar-equipo',
@@ -19,14 +19,14 @@ export class CrearEditarEquipoComponent implements OnInit {
     Liga : ""
 }
 
-  constructor(private route : ActivatedRoute,private equiposService : EquiposService, private router : Router) {
+  constructor(private route : ActivatedRoute,private teamsService : TeamsService, private router : Router) {
     this.id = this.route.snapshot.paramMap.get('id') as string;
     console.log(this.id);
     if (this.id === null) {
       this.creandoEquipo = true;
     } else {
       this.creandoEquipo = false;
-      this.equiposService.sendGetRequestByID(this.id).subscribe(equipo => {
+      this.teamsService.sendGetRequestByID(this.id).subscribe(equipo => {
         this.equipo = equipo[0];
       });
     }
@@ -40,7 +40,7 @@ export class CrearEditarEquipoComponent implements OnInit {
     let existenDatos : boolean;
     if (this.id === null) {
       console.log("Se ha llegado por el navbar");
-      this.equiposService.sendPostRequest(equipo).subscribe(data => {
+      this.teamsService.sendPostRequest(equipo).subscribe(data => {
         console.log(data);
         if (data['Nombre del equipo'] != "") {
           existenDatos = true;
@@ -59,7 +59,7 @@ export class CrearEditarEquipoComponent implements OnInit {
       });
     } else {
       console.log("se ha llegado por el euipo");
-      this.equiposService.sendPutRequest(equipo, this.id).subscribe(data => {
+      this.teamsService.sendPutRequest(equipo, this.id).subscribe(data => {
         console.log(data);
         if (data['Nombre del equipo'] != "") {
           existenDatos = true;

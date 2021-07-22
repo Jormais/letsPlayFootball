@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class EquiposService {
+export class TeamsService {
 
   idEquipo : string = "";
   apiUrl = environment.apiUrl;

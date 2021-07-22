@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Equipos } from 'src/app/interfaces/equipos';
 import { Jugadores } from 'src/app/interfaces/jugadores';
-import { EquiposService } from 'src/app/services/equipos/equipos.service';
+import { TeamsService } from 'src/app/services/teams/teams.service';
 import { PlayerService } from 'src/app/services/player/player.service';
 
 @Component({
@@ -16,9 +16,9 @@ export class BusquedaEquiposComponent implements OnInit {
   equipos : Equipos[] = [];
   equiporFiltrados!: Equipos;
 
-  constructor(private equiposService : EquiposService, private playerService : PlayerService) { 
+  constructor(private teamsService : TeamsService, private playerService : PlayerService) { 
     this.busqueda = localStorage.getItem("busqueda") || "";
-    equiposService.sendGetRequest().subscribe( equipo => {
+    teamsService.sendGetRequest().subscribe( equipo => {
       this.equipos = equipo;
       this.equipos.map( x => {
         if (x['Nombre del equipo'] === this.busqueda) {
