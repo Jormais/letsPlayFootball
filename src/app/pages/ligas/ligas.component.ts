@@ -12,7 +12,7 @@ export class LigasComponent implements OnInit {
   leagues : Leagues[] = [];
 
   constructor(private leaguesService : LeaguesService) {
-    leaguesService.sendGetRequest().subscribe( league => {
+    leaguesService.getLeagues().subscribe( league => {
       return this.leagues = league;
     });
   }
