@@ -15,7 +15,7 @@ export class JugadorComponent implements OnInit {
 
   constructor(private route : ActivatedRoute, private jugadorService : JugadorService, private router : Router) {
     this.id = this.route.snapshot.paramMap.get('id') as string;
-    jugadorService.sendGetRequestByID(this.id).subscribe( jugador => this.jugador = jugador);
+    jugadorService.getPlayerByID(this.id).subscribe( jugador => this.jugador = jugador);
   }
 
   ngOnInit(): void {
@@ -23,7 +23,7 @@ export class JugadorComponent implements OnInit {
 
   borrar() {
     let isTrue :boolean;
-    this.jugadorService.sendDeleteRequest(this.id).subscribe( data => {
+    this.jugadorService.deletePlayer(this.id).subscribe( data => {
       console.log(data);
       if (data['Nombre del Jugador'] != "") {
         isTrue = true;

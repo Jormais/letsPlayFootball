@@ -16,7 +16,7 @@ export class BusquedaComponent implements OnInit {
   constructor(private jugadorService : JugadorService) { 
     this.busqueda = localStorage.getItem("busqueda") || "";
     console.log(this.busqueda);
-    jugadorService.sendGetRequest().subscribe( jugador => {
+    jugadorService.getPlayer().subscribe( jugador => {
       this.jugadores = jugador;
       this.jugadoresFiltrados = this.jugadores.filter( j => j['Nombre del Jugador'].toLowerCase().indexOf(this.busqueda.toLowerCase()) !== -1)
     });

@@ -14,7 +14,7 @@ export class JugadoresComponent implements OnInit {
   jugadoresFiltrados : Jugadores[] = [];
 
   constructor(private jugadorService : JugadorService, private equiposService : EquiposService) {
-    jugadorService.sendGetRequest().subscribe( jugador => {
+    jugadorService.getPlayer().subscribe( jugador => {
         this.jugadores = jugador;
         this.jugadores.map( x => {
           if(x.teamId === this.equiposService.idEquipo) {

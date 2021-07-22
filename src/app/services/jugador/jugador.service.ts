@@ -14,23 +14,23 @@ export class JugadorService {
 
   constructor(public httpClient: HttpClient) { }
 
-  sendGetRequestByID(id : string) : Observable<Jugadores[]> {
+  getPlayerByID(id : string) : Observable<Jugadores[]> {
     return this.httpClient.get<Jugadores[]>(this.apiUrl  + `players?id=${id}`);
   }
   
-  sendGetRequest() : Observable<Jugadores[]> {
+  getPlayer() : Observable<Jugadores[]> {
     return this.httpClient.get<Jugadores[]>(this.apiUrl  + 'players');
   }
 
-  sendPostRequest(jugador : Jugadores) : Observable<Jugadores> {
+  createPlayer(jugador : Jugadores) : Observable<Jugadores> {
     return this.httpClient.post<Jugadores>(this.apiUrl  + 'players', jugador);
   }
 
-  sendPutRequest(jugador :Jugadores, id :string) : Observable<Jugadores> {
+  editPlayer(jugador :Jugadores, id :string) : Observable<Jugadores> {
     return this.httpClient.put<Jugadores>(this.apiUrl  + `${id}`, jugador)
   }
 
-  sendDeleteRequest(id : string) : Observable<Jugadores> {
+  deletePlayer(id : string) : Observable<Jugadores> {
     return this.httpClient.delete<Jugadores>(this.apiUrl + `${id}`)
   }
 }

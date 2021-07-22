@@ -26,7 +26,7 @@ export class BusquedaEquiposComponent implements OnInit {
         }
       });
     });
-    jugadorService.sendGetRequest().subscribe( jugador => {
+    jugadorService.getPlayer().subscribe( jugador => {
       this.jugadores = jugador;
       this.jugadores.map( x => {
         if(x.teamId === this.equiporFiltrados.id) {

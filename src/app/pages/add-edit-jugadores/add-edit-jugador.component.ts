@@ -26,7 +26,7 @@ export class AddEditjugadorComponent implements OnInit {
       this.creandoJugador = true;
     } else {
       this.creandoJugador = false;
-      this.juadorService.sendGetRequestByID(this.id).subscribe(jugador => {
+      this.juadorService.getPlayerByID(this.id).subscribe(jugador => {
         this.jugador = jugador[0];
       });
     }
@@ -41,7 +41,7 @@ export class AddEditjugadorComponent implements OnInit {
     let existenDatos : boolean;
     if (this.id === null) {
       console.log("Se ha llegado por el navbar");
-      this.juadorService.sendPostRequest(jugador).subscribe(data => {
+      this.juadorService.createPlayer(jugador).subscribe(data => {
         console.log(data);
         if (data['Nombre del Jugador'] != "") {
           existenDatos = true;
@@ -60,7 +60,7 @@ export class AddEditjugadorComponent implements OnInit {
       });
     } else {
       console.log("se ha llegado por el jugador");
-      this.juadorService.sendPutRequest(jugador, this.id).subscribe(data => {
+      this.juadorService.editPlayer(jugador, this.id).subscribe(data => {
         console.log(data);
         if (data['Nombre del Jugador'] != "") {
           existenDatos = true;
