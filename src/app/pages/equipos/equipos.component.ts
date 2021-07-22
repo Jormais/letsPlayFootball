@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Equipos } from 'src/app/interfaces/equipos';
-import { EquiposService } from 'src/app/services/equipos/equipos.service';
+import { TeamsService } from 'src/app/services/teams/teams.service';
 import { LeaguesService } from 'src/app/services/leagues/leagues.service';
 
 @Component({
@@ -14,8 +14,8 @@ export class EquiposComponent implements OnInit {
   equipos : Equipos[] = [];
   equiporFiltrados : Equipos[] = [];
 
-  constructor(private leaguesService : LeaguesService ,private equiposService : EquiposService, private route : ActivatedRoute,  private router : Router) {
-    equiposService.sendGetRequest().subscribe( equipo => {
+  constructor(private leaguesService : LeaguesService ,private teamsService : TeamsService, private route : ActivatedRoute,  private router : Router) {
+    teamsService.getTeam().subscribe( equipo => {
         this.equipos = equipo;
         this.equipos.map( x => {
           if(x.Liga === this.leaguesService.idLeague) {
@@ -29,14 +29,14 @@ export class EquiposComponent implements OnInit {
   }
 
   setIdEquipo(id : string) {
-    this.equiposService.idEquipo = id;
+    this.teamsService.idEquipo = id;
   }
 
   eliminar(id : string) {
     console.log(id);
     
     let isTrue :boolean;
-    this.equiposService.sendDeleteRequest(id).subscribe( data => {
+    this.teamsService.deleteTeam(id).subscribe( data => {
       console.log(data);
       if (data['Nombre del equipo'] != "") {
         isTrue = true;

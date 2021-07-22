@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Equipos } from 'src/app/interfaces/equipos';
 import { Jugadores } from 'src/app/interfaces/jugadores';
-import { EquiposService } from 'src/app/services/equipos/equipos.service';
-import { JugadorService } from 'src/app/services/jugador/jugador.service';
+import { TeamsService } from 'src/app/services/teams/teams.service';
+import { PlayerService } from 'src/app/services/player/player.service';
 
 @Component({
   selector: 'app-busqueda-equipos',
@@ -16,9 +16,9 @@ export class BusquedaEquiposComponent implements OnInit {
   equipos : Equipos[] = [];
   equiporFiltrados!: Equipos;
 
-  constructor(private equiposService : EquiposService, private jugadorService : JugadorService) { 
+  constructor(private teamsService : TeamsService, private playerService : PlayerService) { 
     this.busqueda = localStorage.getItem("busqueda") || "";
-    equiposService.sendGetRequest().subscribe( equipo => {
+    teamsService.getTeam().subscribe( equipo => {
       this.equipos = equipo;
       this.equipos.map( x => {
         if (x['Nombre del equipo'] === this.busqueda) {
@@ -26,7 +26,7 @@ export class BusquedaEquiposComponent implements OnInit {
         }
       });
     });
-    jugadorService.sendGetRequest().subscribe( jugador => {
+    playerService.getPlayer().subscribe( jugador => {
       this.jugadores = jugador;
       this.jugadores.map( x => {
         if(x.teamId === this.equiporFiltrados.id) {

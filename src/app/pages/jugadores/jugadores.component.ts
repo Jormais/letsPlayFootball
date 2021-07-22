@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Jugadores } from 'src/app/interfaces/jugadores';
-import { EquiposService } from 'src/app/services/equipos/equipos.service';
-import { JugadorService } from 'src/app/services/jugador/jugador.service';
+import { TeamsService } from 'src/app/services/teams/teams.service';
+import { PlayerService } from 'src/app/services/player/player.service';
 
 @Component({
   selector: 'app-jugadores',
@@ -13,11 +13,11 @@ export class JugadoresComponent implements OnInit {
   jugadores : Jugadores[] = [];
   jugadoresFiltrados : Jugadores[] = [];
 
-  constructor(private jugadorService : JugadorService, private equiposService : EquiposService) {
-    jugadorService.sendGetRequest().subscribe( jugador => {
+  constructor(private playerService : PlayerService, private teamsService : TeamsService) {
+    playerService.getPlayer().subscribe( jugador => {
         this.jugadores = jugador;
         this.jugadores.map( x => {
-          if(x.teamId === this.equiposService.idEquipo) {
+          if(x.teamId === this.teamsService.idEquipo) {
             this.jugadoresFiltrados.push(x)
           }
         })

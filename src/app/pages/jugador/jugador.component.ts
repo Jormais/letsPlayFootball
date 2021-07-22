@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Jugadores } from 'src/app/interfaces/jugadores';
-import { JugadorService } from 'src/app/services/jugador/jugador.service';
+import { PlayerService } from 'src/app/services/player/player.service';
 
 @Component({
   selector: 'app-jugador',
@@ -13,9 +13,9 @@ export class JugadorComponent implements OnInit {
   id : string = "";
   jugador : Jugadores[] = [];
 
-  constructor(private route : ActivatedRoute, private jugadorService : JugadorService, private router : Router) {
+  constructor(private route : ActivatedRoute, private playerService : PlayerService, private router : Router) {
     this.id = this.route.snapshot.paramMap.get('id') as string;
-    jugadorService.sendGetRequestByID(this.id).subscribe( jugador => this.jugador = jugador);
+    playerService.getPlayerByID(this.id).subscribe( jugador => this.jugador = jugador);
   }
 
   ngOnInit(): void {
@@ -23,7 +23,7 @@ export class JugadorComponent implements OnInit {
 
   borrar() {
     let isTrue :boolean;
-    this.jugadorService.sendDeleteRequest(this.id).subscribe( data => {
+    this.playerService.deletePlayer(this.id).subscribe( data => {
       console.log(data);
       if (data['Nombre del Jugador'] != "") {
         isTrue = true;
