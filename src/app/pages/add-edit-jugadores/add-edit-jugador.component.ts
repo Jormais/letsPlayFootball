@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Jugadores } from 'src/app/interfaces/jugadores';
-import { JugadorService } from 'src/app/services/jugador/jugador.service';
+import { PlayerService } from 'src/app/services/player/player.service';
 
 @Component({
   selector: 'app-add-edit-jugador',
@@ -19,7 +19,7 @@ export class AddEditjugadorComponent implements OnInit {
     teamId:""
   }
 
-  constructor(private route : ActivatedRoute, private juadorService : JugadorService, private router : Router) { 
+  constructor(private route : ActivatedRoute, private juadorService : PlayerService, private router : Router) { 
     this.id = this.route.snapshot.paramMap.get('id') as string;
     console.log(this.id);
     if (this.id === null) {
