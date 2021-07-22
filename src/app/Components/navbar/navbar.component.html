@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" ng-app="nav" ng-controller="navCtrl as nav">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">letsPlayFootball</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,20 +7,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" (click)="crearEditar('editar-crear')">Crear jugador</a>
+            <a class="nav-link" href="editar-crear" aria-current="page" (click)="crearEditar('editar-crear')">Crear jugador</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" (click)="crearEditar('crear-editar-equipo')">Crear equipo</a>
+            <a class="nav-link" href="crear-editar-equipo" aria-current="page" (click)="crearEditar('crear-editar-equipo')">Crear equipo</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              ¿Que buscamos?
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" (click)="setTipoDeBusqueda('jugador')">Por nombre de jugador</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" (click)="setTipoDeBusqueda('equipo')">Por nombre de equipo</a></li>
-            </ul>
+          <li class="nav-item">
+            <p class="nav-link x" aria-current="page">
+              Buscamos: 
+              <input name="dinamico" type="checkbox" (click)="setTipoDeBusqueda('jugador')">Por nombre de jugador -
+              <input name="dinamico" type="checkbox" (click)="setTipoDeBusqueda('equipo')">Por nombre de equipo
+            </p>
           </li>
         </ul>
         <form #search="ngForm" class="d-flex" (ngSubmit)="busqueda(search)">

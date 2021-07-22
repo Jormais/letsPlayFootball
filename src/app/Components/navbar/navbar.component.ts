@@ -10,23 +10,45 @@ import { Router } from "@angular/router";
 export class NavbarComponent implements OnInit {
 
   porJugadorPorEquipo :string = "";
+  jugador :string = "";
+  equipo : string = "";
+  checkboxes : any;
 
-  constructor(private router : Router) { }
+  constructor(private router : Router) { 
+    this.checkboxes = document.getElementsByName('dinamico');
+  }
 
   ngOnInit(): void {
   }
 
   
 
-  setTipoDeBusqueda(tipo : string) {
-    console.log(tipo);
-    this.porJugadorPorEquipo = tipo;
-    alert("Ha elegido buscar por " + this.porJugadorPorEquipo);
+  setTipoDeBusqueda(tipo : string) {    
+    if (tipo === 'jugador') {
+      console.log("entra en jugador");
+      this.porJugadorPorEquipo = tipo;
+      this.jugador = tipo;
+      console.log(this.jugador);
+    } else if (tipo === 'equipo') {
+      console.log("entra en equipo");
+      this.porJugadorPorEquipo = tipo;
+      this.equipo = tipo;
+      console.log(this.equipo);
+    }
+    if (this.jugador === "jugador" && this.equipo === "equipo") {
+      alert("Solo puedes escoger un tipo de búsqueda");
+      this.jugador = "";
+      this.equipo = "";
+      this.porJugadorPorEquipo = "";
+      this.checkboxes[0].checked = 0;
+      this.checkboxes[1].checked = 0;
+    }
+
   }
 
   busqueda(respuesta : NgForm) {
     if(this.porJugadorPorEquipo === "") {
-      alert("el tipo de búsqueda no puede estar vacio")
+      alert("el tipo de búsqueda no puede estar vacio");
     } else if (this.porJugadorPorEquipo === "jugador") {
       if (respuesta.value.search === "") {
         alert("La búsqueda no debe estar vacía");
